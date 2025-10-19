@@ -22,7 +22,7 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
         else:
-            self.tail = new_node
+            self.tail.next = new_node
             self.head = new_node
     def display(self):
         current = self.head
