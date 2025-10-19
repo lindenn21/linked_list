@@ -59,7 +59,7 @@ class LinkedList:
                 current.next = current.next.next
                 if current.next is None:
                     self.tail = current
-            return data_removed
+                return data_removed
         current = current.next
         return None
 
