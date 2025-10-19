@@ -30,8 +30,19 @@ class LinkedList:
         if self.head is None:
             self.tail = None
         return data_removed
-    def remove_end(self):
-        data_removed = self.
+    def remove_end(self, data_removed=None):
+        if self.head.next is None:
+            data_removed = self.head.data
+            self.head = None
+            self.tail = None
+            return data_removed
+        current = self.head
+        while current.next.next:
+            current = current.next
+        data_removed = current.next.data
+        current.next = None
+        self.tail = current
+        return data_removed
     
     def display(self, data_removed=None):
         if data_removed is not None:
@@ -47,4 +58,6 @@ sushi_preparation.insert_at_end("prepare")
 sushi_preparation.insert_at_end("roll")
 sushi_preparation.insert_at_beginning("assemble")
 removed_beginning = sushi_preparation.remove_beginning()
+removed_end = sushi_preparation.remove_end()
 sushi_preparation.display(removed_beginning)
+sushi_preparation.display(removed_end)
